@@ -6,10 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +25,11 @@ public class TransactionController {
     @GetMapping(TRANSACTION_ENDPOINT_BASE)
     public List<Transaction> handleGet() {
         return service.findAll();
+    }
+
+    @GetMapping(TRANSACTION_ENDPOINT_BASE + "/{id}")
+    public Transaction handleGetById(@PathVariable("id") Long id) {
+        return service.findById(id);
     }
 
     @PostMapping(TRANSACTION_ENDPOINT_BASE)

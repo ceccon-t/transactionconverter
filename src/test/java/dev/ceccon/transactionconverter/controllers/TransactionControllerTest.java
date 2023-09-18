@@ -58,6 +58,23 @@ class TransactionControllerTest {
     }
 
     @Test
+    void testGetByIdPresent() throws Exception {
+        Long desiredId = 1L;
+        Transaction foundTransaction = new Transaction(desiredId, "Transaction1", LocalDate.of(2023, 9, 18), new BigDecimal("1.1"));
+
+        given(service.findById(any(Long.class))).willReturn(foundTransaction);
+
+        mockMvc.perform(get(TRANSACTION_ENDPOINT_BASE + "/1")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.id", is(1)))
+                .andExpect(jsonPath("$.description", is(foundTransaction.getDescription())))
+                .andExpect(jsonPath("$.date", is("2023-09-18")))
+                .andExpect(jsonPath("$.amountInUSDollars", is(1.1)));
+    }
+
+    @Test
     void testGetByIdNotFound() throws Exception {
         given(service.findById(any(Long.class))).willThrow(NotFoundException.class);
 
