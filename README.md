@@ -32,6 +32,14 @@ The easiest way to explore the system and learn its capabilities is through its 
 
 The live documentation offers samples of the necessary requests and endpoints to interact with the system purely through HTTP calls. With them, the system can be used with tools such as Postman or curl.
 
+The most relevant endpoints are the following:
+
+GET `/api/v1/transaction`: list all stored transactions.
+
+POST `/api/v1/transaction`: create and store a new transaction.
+
+GET `/api/v1/conversion/countryAndCurrency/{transactionId}/{country}/{currency}`: get a conversion of the transaction with id {transactionId} to the specific currency of the desired country.
+
 
 ## How to run the application
 
@@ -47,7 +55,7 @@ The project contains a Dockerfile that generates a Docker image for the applicat
 
 ### Other alternatives
 
-Since it is a Spring Boot project, the application can also be run from your preferred IDE. Or you can access it online at [https://tc-transaction-converter.onrender.com/](https://tc-transaction-converter.onrender.com/) (just please be aware that this instance is open to everyone, so data can change at any time due to other users interacting with the system).
+Since it is a Spring Boot project, the application can also be run from your preferred IDE. Or you can access it online at [https://tc-transaction-converter.onrender.com/](https://tc-transaction-converter.onrender.com/swagger-ui.html) (just please be aware that this instance is open to everyone, so data can change at any time due to other users interacting with the system).
 
 
 ## How to build the project
