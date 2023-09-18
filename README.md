@@ -8,6 +8,7 @@ The application is a web service that uses the [Treasury Reporting Rates of Exch
 
 In order to get positive results, make sure you are utilizing currencies that are supported by the Treasury Reporting Rates of Exchange API. Also, conversions will only be performed if there is an exchange rate recorded for at most 6 months prior to the date of the purchase.
 
+
 ## Technical Summary
 
 ### Main frameworks and tools
@@ -20,12 +21,17 @@ The project uses Github Actions to run all tests and build the system whenever t
 
 The version deployed on Render is configured to be updated whenever the `main` branch is updated, as well. It does this by buiding a Docker image from the Dockerfile in the repository and then deploying it as a web service.
 
+### Code organization
+
+To get a short intro to how the code is organized, you can check `architecture.md`.
+
 
 ## How to use
 
 The easiest way to explore the system and learn its capabilities is through its OpenAPI live documentation. If you are running the system locally, this can be found by going to [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) . Alternatively, you can access an online version of it on [Render](https://tc-transaction-converter.onrender.com/swagger-ui.html).
 
 The live documentation offers samples of the necessary requests and endpoints to interact with the system purely through HTTP calls. With them, the system can be used with tools such as Postman or curl.
+
 
 ## How to run the application
 
@@ -43,11 +49,13 @@ The project contains a Dockerfile that generates a Docker image for the applicat
 
 Since it is a Spring Boot project, the application can also be run from your preferred IDE. Or you can access it online at [https://tc-transaction-converter.onrender.com/](https://tc-transaction-converter.onrender.com/) (just please be aware that this instance is open to everyone, so data can change at any time due to other users interacting with the system).
 
+
 ## How to build the project
 
 This is a Maven project, so the easiest way to build it is running `./mvnw clean package` in the root folder. The jar resulting from the build will be located inside the `target` folder that is generated.
 
+
 ## How to run the automated tests
 
-The simplest way is to run `./mvnw verify` on the main folder of the application.
+The simplest way is to run `./mvnw verify` in the main folder of the application (or the equivalent using `mvnw-cmd` for Windows environments).
 
