@@ -13,16 +13,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static dev.ceccon.transactionconverter.controllers.ConversionController.*;
+import static org.hamcrest.core.Is.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-import static org.hamcrest.core.Is.is;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-
-import static dev.ceccon.transactionconverter.controllers.ConversionController.CONVERSION_ENDPOINT_BASE;
-import static dev.ceccon.transactionconverter.controllers.ConversionController.COUNTRY_CURRENCY_PREFIX;
-import static dev.ceccon.transactionconverter.controllers.ConversionController.BASE_CURRENCY_PREFIX;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(ConversionController.class)

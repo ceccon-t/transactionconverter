@@ -15,16 +15,12 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static dev.ceccon.transactionconverter.controllers.TransactionController.TRANSACTION_ENDPOINT_BASE;
+import static org.hamcrest.core.Is.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-
-import static org.hamcrest.core.Is.is;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-
-import static dev.ceccon.transactionconverter.controllers.TransactionController.TRANSACTION_ENDPOINT_BASE;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(TransactionController.class)
