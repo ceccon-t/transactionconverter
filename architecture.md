@@ -6,7 +6,7 @@
 
 The code is structured by layers, with packages for controllers, services, repositories, and so on. The main entity is `Transaction`, which models a purchase transaction recorded in dollars and is persisted to the database. The other main concept used is that of a `ConvertedTransaction`, which is just a version of a Transaction enriched with information about the conversion of its value to a different currency. While Transaction is the only entity persisted, its service layer is fairly simple, with most of the complexity being in the service layer of the ConvertedTransaction.
 
-The logic that consumes the Treasury API is bundled in the `integration.ustreasuryapi` package.
+The logic that consumes the Treasury API is bundled in the `integration.ustreasuryapi` package. In order to find a conversion rate that fits the criteria of being less than or equal to the purchase transaction date and no more than 6 months prior to that, the request to their API is constructed with the necessary limits on the dates and sorting from most recent to least recent, so as to bring the most adequate rate as the first element of the returned list. If the list is empty, the system informs that no rate matched the criteria, and as such the conversion is not made.
 
 The endpoints are defined in the `controllers` package.
 
