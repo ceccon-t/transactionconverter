@@ -1,5 +1,7 @@
 # Transaction Converter
 
+![Build status](https://github.com/ceccon-t/transactionconverter/actions/workflows/ga-pipeline.yml/badge.svg "Build status")
+
 ## Description
 
 The purpose of this system is to allow the conversion of the value of purchase transactions, originally registered in US dollars, to other currencies. For this, it allows the storing of new transactions, the viewing of stored transactions and the conversion of transactions previously stored.
@@ -47,7 +49,7 @@ There are a few ways to achieve this:
 
 ### With Maven
 
-The repository comes with a Maven wrapper, so it can be started by simply cloning or downloading the files and running the command `./mvnw spring-boot:run` while at the root of the project (for Unix-like environments, or the equivalent with mvnw-cmd on Windows).
+The repository comes with a Maven wrapper, so it can be started by simply cloning or downloading the files and running the command `./mvnw spring-boot:run` while at the root of the project (for Unix-like environments, or the equivalent with mvnw.cmd on Windows).
 
 ### With Docker
 
@@ -65,5 +67,5 @@ This is a Maven project, so the easiest way to build it is running `./mvnw clean
 
 ## How to run the automated tests
 
-The simplest way is to run `./mvnw verify` in the main folder of the application (or the equivalent using `mvnw-cmd` for Windows environments).
+The simplest way is to run `./mvnw verify` in the main folder of the application (or the equivalent using `mvnw.cmd` for Windows environments).
 

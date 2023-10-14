@@ -15,7 +15,13 @@ The endpoints are defined in the `controllers` package.
 
 Tests are written with JUnit 5, and the source files can be found under `src/test` hierarchy. There are unit tests for each layer, using Mockito to mock dependencies, as well as a couple of tests that bring up the entire Spring Boot context to validate the main use cases of the system.
 
-To execute all tests, run `./mvnw verify` in the main folder of the application (or the equivalent using `mvnw-cmd` for Windows environments).
+To execute all tests, run `./mvnw verify` in the main folder of the application (or the equivalent using `mvnw.cmd` for Windows environments).
+
+## Continuous Integration
+
+The project uses Github Actions to run all automated tests, build the project and save the executable jar whenever a new commit enters the `main` branch. The script that defines the workflow can be found under `.github/workflows/ga-pipeline.yml`.
+
+If any test is broken, the build fails and a red failure sign is displayed near the hash of the commit in the repository. If all tests pass, a green success sign is displayed instead. A badge with the status of the last build for the main branch is also displayed in the Readme of the project.
 
 ## Libraries and Frameworks
 
@@ -29,3 +35,4 @@ To execute all tests, run `./mvnw verify` in the main folder of the application 
 
 [OpenAPI](https://swagger.io/tools/open-source/getting-started/) for the live documentation.
 
+[Github Actions](https://docs.github.com/en/actions/learn-github-actions) for continuous integration.
